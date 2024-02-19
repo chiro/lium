@@ -13,14 +13,14 @@ use tracing::info;
 
 use crate::config::Config;
 
-const MASTER_ARC_DEV: &str = "master";
+const MAIN: &str = "main";
 const RVC: &str = "rvc";
 const TM: &str = "tm";
 
 pub fn lookup_arc_version(input: &str) -> Result<String> {
     // TODO: find a way to get available version name
     match input {
-        MASTER_ARC_DEV | RVC | TM => Ok(input.to_string()),
+        MAIN | RVC | TM => Ok(input.to_string()),
         _ => bail!("Invalid ARC version : {}", input),
     }
 }
@@ -28,7 +28,7 @@ pub fn lookup_arc_version(input: &str) -> Result<String> {
 fn arc_version_to_branch_name(version: &str) -> Result<String> {
     match version {
         RVC | TM => Ok(format!("{}-arc", version).to_owned()),
-        MASTER_ARC_DEV => Ok("master-arc-dev".to_owned()),
+        MAIN => Ok("main-arc-dev".to_owned()),
         _ => bail!("Invalid ARC version: {}", version),
     }
 }

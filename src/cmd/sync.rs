@@ -42,7 +42,7 @@ pub struct Args {
 
     /// cros or android arc version to sync.
     /// e.g. for chromeOS: 14899.0.0, tot (for development)
-    /// e.g. for arc: rvc, tm, master (which maps to master-arc-dev)
+    /// e.g. for arc: rvc, tm, main (which maps to main-arc-dev)
     #[argh(option)]
     version: String,
 
